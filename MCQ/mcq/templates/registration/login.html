@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+  </head>
+  <body>
+    <br><br>
+    <div class="jumbotron container">
+
+      <h2>Please Login: </h2>
+      <hr>
+      {% if form.errors %}
+          <p>Your username and password didn't match.Please try again!</p>
+      {% endif %}
+
+      <form method="POST" action="{% url 'login' %}">
+          {% csrf_token %}
+          {{form.as_p}}
+          <input type="submit" class='btn btn-primary btn-lg' value="Login" />
+          <input type="hidden" name="next" value="{{ next }}" />
+      </form>
+    </div>
+  </body>
+</html>
