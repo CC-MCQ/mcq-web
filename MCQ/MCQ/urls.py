@@ -20,7 +20,8 @@ from mcq import views
 from django.contrib.auth import views as v
 
 urlpatterns = [
-    path('index/',views.index,name='index'),
+    path('student_index/',views.student_index,name='student_index'),
+    path('teacher_index/',views.teacher_index,name='teacher_index'),
     path('',views.about,name='about'),
     path('register/',views.register,name='register'),
     path('admin/', admin.site.urls),

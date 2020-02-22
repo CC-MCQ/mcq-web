@@ -21,12 +21,21 @@ def student(user):
     print(v[0].identity)
     return (v[0].identity == 'student')
 
+def teacher(user):
+    v = UserProfileInfo.objects.filter(user=user)
+    print(v[0].identity)
+    return (v[0].identity == 'teacher')
+
 def about(request):
     return render(request,'about.html')
 
-@user_passes_test(student,login_url='/')
-def index(request):
-    return render(request,'index.html')
+@user_passes_test(student,login_url='/teacher_index')
+def student_index(request):
+    return render(request,'student_index.html')
+
+@user_passes_test(teacher,login_url='/')
+def teacher_index(request):
+    return render(request,'teacher_index.html')
 
 @login_required
 def user_logout(request):
