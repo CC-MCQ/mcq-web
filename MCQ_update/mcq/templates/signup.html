@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block body_block %}
+
+    <div class="jumbotron">
+      <h3><strong>Sign Up For A Free Account</strong></h3>
+      <h5>Select below the type of account you want to create</h5>
+      <button onclick="location.href='{% url 'student_signup' %}'" type="submit" class="btn btn-primary" name="button">I'm a student</button>
+      <button onclick="location.href='{% url 'teacher_signup' %}'" type="submit" class="btn btn-primary" name="button">I'm a teacher</button>
+    </div>
+
+{% endblock %}
+</html>
